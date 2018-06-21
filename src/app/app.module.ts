@@ -6,25 +6,34 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ContatoPage } from '../pages/contato/contato';
+import { ListaPage } from '../pages/lista/lista';
+import { RemoteServiceProvider } from '../providers/remote-service/remote-service';
+import { HttpModule} from '@angular/http'; 
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ContatoPage,
+    ListaPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ContatoPage,ListaPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RemoteServiceProvider
   ]
 })
 export class AppModule {}
